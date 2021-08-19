@@ -1,6 +1,5 @@
-
+import React, { useState } from 'react';
 import ReactDOM from 'react-dom';
-import React, { useState, useEffect } from 'react';
 import './index.css';
 
 function Square(props) {
@@ -45,6 +44,7 @@ class Board extends React.Component {
 }
 
 const Game = (props) => {
+
     const [history, setHistory] = useState([{ squares: Array(9).fill(null) }])
     const [stepNumber, setStepNumber] = useState(0)
     const [xIsNext, setXIsNext] = useState(true)
@@ -57,6 +57,7 @@ const Game = (props) => {
             return;
         }
         squares[i] = xIsNext ? "X" : "O";
+
         setHistory(history.concat([
             {
                 squares: squares
@@ -64,24 +65,24 @@ const Game = (props) => {
         ]))
         setStepNumber(history.length)
         setXIsNext(!xIsNext)
-    };
+    }
 
     const jumpTo = (step) => {
         setStepNumber(step)
         setXIsNext((step % 2) === 0)
     };
 
-
-    const current = history[stepNumber];
+    const historyThing = history;
+    const current = historyThing[stepNumber];
     const winner = calculateWinner(current.squares);
     const draw = !winner && stepNumber === 9;
-    const moves = history.map((step, move) => {
+    const moves = historyThing.map((step, move) => {
         const desc = move ?
             'Go to move #' + move :
             'Go to game start';
         return (
             <li key={move}>
-                <button onClick={() => this.jumpTo(move)}>{desc}</button>
+                <button onClick={() => jumpTo(move)}>{desc}</button>
             </li>
         );
     });
@@ -95,13 +96,12 @@ const Game = (props) => {
         status = "Next player: " + (xIsNext ? "X" : "O");
     }
 
-
     return (
         <div className="game">
             <div className="game-board">
                 <Board
                     squares={current.squares}
-                    onClick={i => this.handleClick(i)}
+                    onClick={i => handleClick(i)}
                 />
             </div>
             <div className="game-info">
@@ -135,5 +135,6 @@ function calculateWinner(squares) {
     }
     return null;
 }
+
 
 export default Game;
