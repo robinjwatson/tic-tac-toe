@@ -1,5 +1,6 @@
 import React, { useState, useMemo } from 'react';
 import ReactDOM from 'react-dom';
+import * as utils from './utils';
 import './index.css';
 
 const Square = (props) => {
@@ -58,7 +59,8 @@ const Game = (props) => {
         const hist = history.slice(0, stepNumber + 1);
         const current = hist[stepNumber];
         const squares = current.squares.slice();
-        const randomNumber = Math.floor(Math.random() * 9)
+        const randomNumber = utils.randomNumber();
+
         if (calculateWinner(squares) || squares[i]) {
             return;
         }
