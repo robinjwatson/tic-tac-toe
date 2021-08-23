@@ -1,8 +1,8 @@
-import React, { useState } from 'react';
+import React, { useState, useMemo } from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 
-function Square(props) {
+const Square = (props) => {
     return (
         <button className="square" onClick={props.onClick}>
             {props.value}
@@ -41,7 +41,9 @@ class Board extends React.Component {
             </div>
         );
     }
-}
+};
+
+
 
 const Game = (props) => {
 
@@ -49,22 +51,30 @@ const Game = (props) => {
     const [stepNumber, setStepNumber] = useState(0)
     const [xIsNext, setXIsNext] = useState(true)
 
+    const title = useMemo(() =>
+        `Move number #${stepNumber}`, [stepNumber]);
+
     const handleClick = (i) => {
-        setHistory(history.slice(0, stepNumber + 1));
-        const current = history[history.length - 1];
+        const hist = history.slice(0, stepNumber + 1);
+        const current = hist[stepNumber];
         const squares = current.squares.slice();
+        const randomNumber = Math.floor(Math.random() * 9)
         if (calculateWinner(squares) || squares[i]) {
             return;
         }
         squares[i] = xIsNext ? "X" : "O";
 
-        setHistory(history.concat([
+        setHistory(hist.concat([
             {
                 squares: squares
             }
         ]))
-        setStepNumber(history.length)
+        setStepNumber(stepNumber + 1)
         setXIsNext(!xIsNext)
+
+        if (!xIsNext) {
+            handleClick(randomNumber)
+        }
     }
 
     const jumpTo = (step) => {
@@ -72,11 +82,11 @@ const Game = (props) => {
         setXIsNext((step % 2) === 0)
     };
 
-    const historyThing = history;
-    const current = historyThing[stepNumber];
+    const historyTemp = history;
+    const current = historyTemp[stepNumber];
     const winner = calculateWinner(current.squares);
     const draw = !winner && stepNumber === 9;
-    const moves = historyThing.map((step, move) => {
+    const moves = historyTemp.map((step, move) => {
         const desc = move ?
             'Go to move #' + move :
             'Go to game start';
@@ -106,6 +116,7 @@ const Game = (props) => {
             </div>
             <div className="game-info">
                 <div>{status}</div>
+                <div>{title}</div>
                 <ol>{moves}</ol>
             </div>
         </div>
@@ -135,6 +146,5 @@ function calculateWinner(squares) {
     }
     return null;
 }
-
 
 export default Game;
