@@ -1,15 +1,8 @@
 import React, { useState, useMemo } from 'react';
 import ReactDOM from 'react-dom';
 import * as utils from './utils';
+import * as Square from './Square';
 import './index.css';
-
-const Square = (props) => {
-    return (
-        <button className="square" onClick={props.onClick}>
-            {props.value}
-        </button>
-    );
-}
 
 class Board extends React.Component {
     renderSquare(i) {
@@ -43,8 +36,6 @@ class Board extends React.Component {
         );
     }
 };
-
-
 
 const Game = (props) => {
 
