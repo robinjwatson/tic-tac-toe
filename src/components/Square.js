@@ -1,7 +1,11 @@
-export const Square = (props) => {
+import '../index.css';
+
+const Square = ({ onClick, value }) => {
     return (
-        <button className="square" onClick={props.onClick}>
-            {props.value}
+        <button className="square" onClick={onClick}>
+            {value}
         </button>
     );
 };
+
+export default Square
