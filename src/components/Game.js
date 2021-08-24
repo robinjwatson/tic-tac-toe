@@ -1,10 +1,9 @@
-import React, { useState, useMemo } from 'react';
-import ReactDOM from 'react-dom';
+import { useState, useMemo } from 'react';
 import * as utils from '../utils';
 import Board from './Board';
 import '../index.css';
 
-export const Game = (props) => {
+export const Game = () => {
 
     const [history, setHistory] = useState([{ squares: Array(9).fill(null) }])
     const [stepNumber, setStepNumber] = useState(0)
@@ -46,7 +45,7 @@ export const Game = (props) => {
     const current = historyTemp[stepNumber];
     const winner = utils.calculateWinner(current.squares);
     const draw = !winner && stepNumber === 9;
-    const moves = historyTemp.map((step, move) => {
+    const moves = historyTemp.map((step, move) => {     //when step is taken out, warnings appear
         const desc = move ?
             'Go to move #' + move :
             'Go to game start';

@@ -1,60 +1,54 @@
-import React, { useState, useMemo } from 'react';
-import ReactDOM from 'react-dom';
 import Square from './Square';
 import '../index.css';
 
-const renderSquare = (i) => {
-    return (
-        <Square
-            value={this.props.squares[i]}
-            onClick={() => this.props.onClick(i)}
-        />
-    );
-};
-
 const Board = ({ squares, onClick }) => {
+    const handleOnClick = (i) => {
+        return (
+            () => onClick(i)
+        )
+    };
     return (
         <div>
             <div className="board-row">
                 <Square
                     value={squares[0]}
-                    onClick={() => onClick(0)}
+                    onClick={handleOnClick(0)}
                 />
                 <Square
                     value={squares[1]}
-                    onClick={() => onClick(1)}
+                    onClick={handleOnClick(1)}
                 />
                 <Square
                     value={squares[2]}
-                    onClick={() => onClick(2)}
+                    onClick={handleOnClick(2)}
                 />
             </div>
             <div className="board-row">
                 <Square
                     value={squares[3]}
-                    onClick={() => onClick(3)}
+                    onClick={handleOnClick(3)}
                 />
                 <Square
                     value={squares[4]}
-                    onClick={() => onClick(4)}
+                    onClick={handleOnClick(4)}
                 />
                 <Square
                     value={squares[5]}
-                    onClick={() => onClick(5)}
+                    onClick={handleOnClick(5)}
                 />
             </div>
             <div className="board-row">
                 <Square
                     value={squares[6]}
-                    onClick={() => onClick(6)}
+                    onClick={handleOnClick(6)}
                 />
                 <Square
                     value={squares[7]}
-                    onClick={() => onClick(7)}
+                    onClick={handleOnClick(7)}
                 />
                 <Square
                     value={squares[8]}
-                    onClick={() => onClick(8)}
+                    onClick={handleOnClick(8)}
                 />
             </div>
         </div>
