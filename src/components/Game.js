@@ -1,10 +1,10 @@
 import { useState, useMemo } from 'react';
 import * as utils from '../utils';
 import Board from './Board';
+import { moves } from './Moves';
 import '../index.css';
 
 export const Game = () => {
-
     const [history, setHistory] = useState([{ squares: Array(9).fill(null) }])
     const [stepNumber, setStepNumber] = useState(0)
     const [xIsNext, setXIsNext] = useState(true)
@@ -36,25 +36,25 @@ export const Game = () => {
         }
     }
 
-    const jumpTo = (step) => {
-        setStepNumber(step)
-        setXIsNext((step % 2) === 0)
-    };
+    // const jumpTo = (step) => {
+    //     setStepNumber(step)
+    //     setXIsNext((step % 2) === 0)
+    // };
 
-    const historyTemp = history;
-    const current = historyTemp[stepNumber];
+    const current = history[stepNumber];
     const winner = utils.calculateWinner(current.squares);
     const draw = !winner && stepNumber === 9;
-    const moves = historyTemp.map((step, move) => {     //when step is taken out, warnings appear
-        const desc = move ?
-            'Go to move #' + move :
-            'Go to game start';
-        return (
-            <li key={move}>
-                <button onClick={() => jumpTo(move)}>{desc}</button>
-            </li>
-        );
-    });
+    // const moves = historyTemp.map((_, move) => {
+
+    //     const desc = move ?
+    //         'Go to move #' + move :
+    //         'Go to game start';
+    //     return (
+    //         <li key={move}>
+    //             <button onClick={() => jumpTo(move)}>{desc}</button>
+    //         </li>
+    //     );
+    // });
 
     let status;
     if (winner) {
@@ -76,8 +76,10 @@ export const Game = () => {
             <div className="game-info">
                 <div>{status}</div>
                 <div>{title}</div>
-                <ol>{moves}</ol>
+                <ol>{moves(history, setStepNumber, setXIsNext)}</ol>
             </div>
         </div>
     );
 };
+
+export default Game
