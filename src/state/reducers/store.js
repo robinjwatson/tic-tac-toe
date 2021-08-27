@@ -4,4 +4,4 @@ import reducers from "./index"
 
 export const store = createStore(
     reducers, composeWithDevTools()
-)
+);

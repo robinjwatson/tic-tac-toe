@@ -1,4 +1,3 @@
-
 import '../index.css';
 
 const Moves = ({ history, jumpTo }) => {

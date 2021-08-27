@@ -2,6 +2,7 @@ import * as utils from '../utils';
 import '../index.css';
 
 const Status = ({ current, stepNumber, xIsNext }) => {
+    //const xIsNext = useSelector((state) => state.game.xIsNext)
     const winner = utils.calculateWinner(current);
     const draw = !winner && stepNumber === 9;
     let content

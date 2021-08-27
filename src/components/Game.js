@@ -8,7 +8,7 @@ import '../index.css';
 
 const Game = () => {
     const dispatch = useDispatch()
-    const counter = useSelector((state) => state.example)
+    const gameCount = useSelector((state) => state.counter)
     const [history, setHistory] = useState([Array(9).fill(null)])
     const [stepNumber, setStepNumber] = useState(0)
     const [xIsNext, setXIsNext] = useState(true)
@@ -17,6 +17,10 @@ const Game = () => {
         setStepNumber(move)
         setXIsNext((move % 2) === 0)
         setHistory(history.slice(0, move + 1))
+        if (move === 0) {
+            dispatch({ type: 'incrementGameCounter' })
+            return;
+        }
     };
 
     const title = useMemo(() =>
@@ -63,27 +67,14 @@ const Game = () => {
                         jumpTo={jumpTo}
                     />
                 </ol>
-                <button onClick={
-                    () => dispatch({ type: 'increment' })}>
-                    Increment
-                </button>
-                <button onClick={
-                    () => dispatch({ type: 'increment by', payload: 3 })}>
-                    Increment by 3
-                </button>
-                <button onClick={
-                    () => dispatch({ type: 'decrement' })}>
-                    Decrement
-                </button>
-                <button onClick={
-                    () => dispatch({ type: 'decrement by', payload: 3 })}>
-                    Decrement by 3
-                </button>
                 <div>
-                    {counter}
+                    Game count: {gameCount}
                 </div>
+                <button onClick={() => { dispatch({ type: 'resetGameCounter' }) }}>
+                    Reset game count
+                </button>
             </div>
-        </div>
+        </div >
     );
 };
 
