@@ -1,15 +1,6 @@
 import * as utils from '../utils';
 import '../index.css';
 
-// let status;
-// if (winner) {
-//     status = "Winner: " + winner;
-// } else if (draw) {
-//     status = "Draw, replay";
-// } else {
-//     status = "Next player: " + (Game.xIsNext ? "X" : "O");
-// };
-
 const Status = ({ current, stepNumber, xIsNext }) => {
     const winner = utils.calculateWinner(current);
     const draw = !winner && stepNumber === 9;
