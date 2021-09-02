@@ -1,5 +1,5 @@
 body {
-    font: 14px "Century Gothic", Futura, sans-serif;
+    font: 14px "Comic Sans MS", Futura, sans-serif;
     margin: 20px;
   }
   
@@ -17,10 +17,15 @@ body {
     margin-bottom: 10px;
   }
   
+  .square:hover {
+    background-color:blueviolet
+  }
+
   .square {
-    background: hotpink;
-    border: 10px solid rgb(0, 0, 0);
+    background: pink; 
+    border: 5px solid rgb(0, 0, 0);
     float: left;
+    font-stretch: 50%;
     font-size: 24px;
     font-weight: bold;
     line-height: 34px;
@@ -34,10 +39,12 @@ body {
   
   .square:focus {
     outline: none;
+    outline-style: groove;
+    outline-color: invert; 
   }
   
   .kbd-navigation .square:focus {
-    background: #ddd;
+    background: rgb(221, 221, 221);
   }
   
   .game {
@@ -49,4 +56,19 @@ body {
     margin-left: 200px;
   }
   
+button {
+  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+  transition-duration: 1s;  
+  font: 14px "Comic Sans MS", Futura, sans-serif;
+    width: 70px;
+    height: 70px;
+    background-image: url(C:\dev\tic-tac-toe\src\Doge.jpg)
+  }
+
+button:hover {
+  background-image: url(C:\dev\tic-tac-toe\src\bidoofSquare.jpg);
+    width: 70px;
+    height: 70px;
+	transform: scale(1.05);
+}
   

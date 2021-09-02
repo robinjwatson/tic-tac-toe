@@ -1,8 +1,11 @@
 import { combineReducers } from "redux";
-import counterReducer from "./gameCountReducer";
+import gameCountReducer from "./gameCountReducer";
+import statusReducer from "./statusReducer";
 
 const reducers = combineReducers({
-    counter: counterReducer
+    gameCount: gameCountReducer,
+    statusReducer: statusReducer,
+
 });
 
 export default reducers

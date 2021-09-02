@@ -1,9 +1,14 @@
-const initialState = 0
+const initialState = {
+    value: 0
+}
 
-const counterReducer = (state = initialState, action) => {
+const gameCountReducer = (state = initialState, action) => {
     switch (action.type) {
         case "incrementGameCounter":
-            return state + 1;
+            return {
+                ...state,
+                value: state.value + 1
+            }
         case "resetGameCounter":
             return initialState;
         default:
@@ -11,4 +16,4 @@ const counterReducer = (state = initialState, action) => {
     }
 };
 
-export default counterReducer;
+export default gameCountReducer;

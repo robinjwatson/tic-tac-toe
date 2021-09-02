@@ -8,19 +8,27 @@ import '../index.css';
 
 const Game = () => {
     const dispatch = useDispatch()
-    const gameCount = useSelector((state) => state.counter)
+    const gameCount = useSelector((state) => state.gameCount.value)
+    const isXnext = useSelector((state) => state.statusReducer.isXnext)
     const [history, setHistory] = useState([Array(9).fill(null)])
     const [stepNumber, setStepNumber] = useState(0)
-    const [xIsNext, setXIsNext] = useState(true)
+    // const [xIsNext, setXIsNext] = useState(true)
 
     const jumpTo = (move) => {
-        setStepNumber(move)
-        setXIsNext((move % 2) === 0)
         setHistory(history.slice(0, move + 1))
-        if (move === 0) {
-            dispatch({ type: 'incrementGameCounter' })
+        setStepNumber(move)
+
+
+        dispatch({ type: 'incrementGameCounter' })
+
+
+        if ((move % 2) === 0) {
+            dispatch({ type: 'xIsNext' })
             return;
         }
+
+        // xIsNext((move % 2) === 0)
+
     };
 
     const title = useMemo(() =>
@@ -33,14 +41,16 @@ const Game = () => {
         if (utils.calculateWinner(squares) || squares[i]) {
             return;
         }
-        squares[i] = xIsNext ? "X" : "O";
+        squares[i] = isXnext ? "X" : "O";
 
         setHistory(history.concat([squares]))
         setStepNumber(stepNumber + 1)
-        setXIsNext(!xIsNext)
+        dispatch({ type: 'oIsNext' })
 
-        if (!xIsNext) {
+        if (!isXnext) {
             handleClick(randomNumber)
+            dispatch({ type: 'xIsNext' })
+            return;
         }
     }
 
@@ -57,7 +67,7 @@ const Game = () => {
                     <Status
                         current={history[stepNumber]}
                         stepNumber={stepNumber}
-                        xIsNext={xIsNext}
+                        xIsNext={isXnext}
                     />
                 </div>
                 <div>{title}</div>
