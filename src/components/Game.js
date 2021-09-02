@@ -12,7 +12,6 @@ const Game = () => {
     const isXnext = useSelector((state) => state.statusReducer.isXnext)
     const [history, setHistory] = useState([Array(9).fill(null)])
     const [stepNumber, setStepNumber] = useState(0)
-    // const [xIsNext, setXIsNext] = useState(true)
 
     const jumpTo = (move) => {
         setHistory(history.slice(0, move + 1))
@@ -26,8 +25,6 @@ const Game = () => {
             dispatch({ type: 'xIsNext' })
             return;
         }
-
-        // xIsNext((move % 2) === 0)
 
     };
 
@@ -56,9 +53,11 @@ const Game = () => {
 
     return (
         <div className="game">
-            <h1>
-                "Tic-TacToe"
-            </h1>
+            <div>
+                <h1>
+                    "Tic-TacToe"
+                </h1>
+            </div>
             <div className="game-board">
                 <Board
                     squares={history[stepNumber]}
@@ -73,7 +72,9 @@ const Game = () => {
                         xIsNext={isXnext}
                     />
                 </div>
-                <div>{title}</div>
+                <div>
+                    {title}
+                </div>
                 <ol>
                     <Moves
                         history={history}
@@ -83,9 +84,11 @@ const Game = () => {
                 <div>
                     Game count: {gameCount}
                 </div>
-                <button onClick={() => { dispatch({ type: 'resetGameCounter' }) }}>
-                    Reset game count
-                </button>
+                <div>
+                    <button onClick={() => { dispatch({ type: 'resetGameCounter' }) }}>
+                        Reset game count
+                    </button>
+                </div>
             </div>
         </div >
     );
