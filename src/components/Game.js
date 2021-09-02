@@ -56,6 +56,9 @@ const Game = () => {
 
     return (
         <div className="game">
+            <h1>
+                "Tic-TacToe"
+            </h1>
             <div className="game-board">
                 <Board
                     squares={history[stepNumber]}

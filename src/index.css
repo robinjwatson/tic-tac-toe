@@ -1,8 +1,17 @@
 body {
     font: 14px "Comic Sans MS", Futura, sans-serif;
-    margin: 20px;
+    margin: 10px;
+    background-color: burlywood;
+    opacity: 0.8;
   }
   
+  .h1 {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    flex-direction: column;
+  }
+
   ol, ul {
     padding-left: 30px;
   }
@@ -49,16 +58,20 @@ body {
   
   .game {
     display: flex;
-    flex-direction: row;
+    align-items: center;
+    justify-content:space-evenly;
+    flex-direction: column;
+    flex-wrap: wrap;
   }
   
   .game-info {
-    margin-left: 200px;
+    display: block;
+    margin-left: 100px;
   }
   
 button {
   box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
-  transition-duration: 1s;  
+  transition-duration: 0.7s;  
   font: 14px "Comic Sans MS", Futura, sans-serif;
     width: 70px;
     height: 70px;
@@ -70,5 +83,6 @@ button:hover {
     width: 70px;
     height: 70px;
 	transform: scale(1.05);
+  transform: rotate(1turn);
 }
   
