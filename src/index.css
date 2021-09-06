@@ -1,21 +1,33 @@
 body {
-    font: 14px "Comic Sans MS", Futura, sans-serif;
-    margin: 10px;
-    background-color: burlywood;
-    opacity: 0.8;
-  }
-  
-  .h1 {
-    display: flex;
-    justify-content: flex-start;
-    align-items: center;
-    flex-direction: column;
+  font: 14px "Comic Sans MS", Futura, sans-serif;
+  margin: 10px;
+  background-color: burlywood;
+  opacity: 0.8;
+  display: grid;
+  justify-content: center;
+  align-content: center;
+}
+
+  .game {
+    display: grid;
+      grid-template-columns: repeat(1, 1fr);
+      grid-gap: 1em;
+      grid-auto-rows: minmax(10px, auto);
   }
 
-  ol, ul {
-    padding-left: 30px;
+  ol {
+    display: grid;
+    grid-gap: 1em;
+    margin: auto;
   }
-  
+
+  li {
+    display: grid;
+    padding: 0.05em; 
+    align-items: center;
+    justify-items: center;
+  }
+
   .board-row:after {
     clear: both;
     content: "";
@@ -26,11 +38,8 @@ body {
     margin-bottom: 10px;
   }
   
-  .square:hover {
-    background-color:blueviolet
-  }
-
   .square {
+    transition-duration: 1s;  
     background: pink; 
     border: 5px solid rgb(0, 0, 0);
     float: left;
@@ -45,44 +54,72 @@ body {
     text-align: center;
     width: 70px;
   }
+
+  .square:hover {
+    background-color:blueviolet;
+    transform: rotate(1turn);
+  }
   
   .square:focus {
     outline: none;
     outline-style: groove;
-    outline-color: invert; 
+    outline-color: invert;
+    transform: scale(1.1);
   }
   
-  .kbd-navigation .square:focus {
-    background: rgb(221, 221, 221);
+  ol.Moves 
+  {
+    display: grid;
+    grid-auto-flow: row;
   }
-  
-  .game {
-    display: flex;
-    align-items: center;
-    justify-content:space-evenly;
-    flex-direction: column;
-    flex-wrap: wrap;
-  }
-  
-  .game-info {
-    display: block;
-    margin-left: 0px;
-  }
-  
-button {
-  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
-  transition-duration: 0.7s;  
-  font: 14px "Comic Sans MS", Futura, sans-serif;
+
+  .Moves button {
+    font: 15px "Comic Sans MS", Futura, sans-serif;
+    color: red;
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+    transition-duration: 1s;  
     width: 70px;
     height: 70px;
     background-image: url(C:\dev\tic-tac-toe\src\Doge.jpg)
   }
+  
+  .Moves button:hover {
+    background-image: url(C:\dev\tic-tac-toe\src\bidoofSquare.jpg);
+    transform: rotate(1turn);
+  }
+  
+  .Moves button:focus {
+    transform:scale(1.1);
+  }
 
-button:hover {
-  background-image: url(C:\dev\tic-tac-toe\src\bidoofSquare.jpg);
+  .resetButton {
+    display: grid;
+    grid-gap: 1em;
+    transition-duration: 1s;  
     width: 70px;
     height: 70px;
-	transform: scale(1.05);
-  transform: rotate(1turn);
-}
+  }
+
+  .resetButton button {
+    box-shadow: 0 16px 32px 0 rgba(0,0,0,0.2), 0 12px 40px 0 rgba(0,0,0,0.19);
+    transition-duration: 1s;  
+    width: 70px;
+    height: 70px;
+    background-image: url(C:\dev\tic-tac-toe\src\Doge.jpg);
+  }
+
+  .resetButton:hover {
+    transform: rotate(-1turn);
+  }
+
+  .resetButton button:focus {
+    transform: scale(2);
+    background-image: url(C:\dev\tic-tac-toe\src\bidoofSquare.jpg);
+   }
   
+  .gameCount{
+    font: 25px "Comic Sans MS", Futura, sans-serif;
+    display: grid;
+    grid-gap: 0.5em;
+    grid-auto-flow: column;
+  }

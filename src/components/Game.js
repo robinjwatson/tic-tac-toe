@@ -29,7 +29,7 @@ const Game = () => {
     };
 
     const title = useMemo(() =>
-        `Move number #${stepNumber}`, [stepNumber]);
+        `Move number # ${stepNumber}`, [stepNumber]);
 
     const handleClick = (i) => {
         const squares = history[stepNumber].slice();
@@ -58,11 +58,26 @@ const Game = () => {
                     "Tic-TacToe"
                 </h1>
             </div>
+
             <div className="game-board">
                 <Board
                     squares={history[stepNumber]}
                     onClick={i => handleClick(i)}
                 />
+            </div>
+
+            <div className="gameCount">
+                <div>
+                    {gameCount}
+                </div>
+
+                <div className="resetButton">
+                    <button onClick={() => { dispatch({ type: 'resetGameCounter' }) }}>
+                    </button>
+                </div>
+                <div>
+                    Reset game count
+                </div>
             </div>
             <div className="game-info">
                 <div>
@@ -72,24 +87,18 @@ const Game = () => {
                         xIsNext={isXnext}
                     />
                 </div>
+
                 <div>
                     {title}
                 </div>
-                <ol>
-                    <Moves
-                        history={history}
-                        jumpTo={jumpTo}
-                    />
-                </ol>
-                <div>
-                    Game count: {gameCount}
-                </div>
-                <div>
-                    <button onClick={() => { dispatch({ type: 'resetGameCounter' }) }}>
-                        Reset game count
-                    </button>
-                </div>
+
             </div>
+            <ol className="Moves">
+                <Moves
+                    history={history}
+                    jumpTo={jumpTo}
+                />
+            </ol>
         </div >
     );
 };
