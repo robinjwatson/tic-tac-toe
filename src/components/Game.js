@@ -59,7 +59,9 @@ const Game = () => {
                 </h1>
             </div>
 
-            <div className="game-board">
+            <div className="game-board"
+                data-cy="square"
+            >
                 <Board
                     squares={history[stepNumber]}
                     onClick={i => handleClick(i)}
@@ -72,13 +74,15 @@ const Game = () => {
                 </div>
 
                 <div className="resetButton">
-                    <button onClick={() => { dispatch({ type: 'resetGameCounter' }) }}>
+                    <button data-cy="resetButton" onClick={() => { dispatch({ type: 'resetGameCounter' }) }}>
                     </button>
                 </div>
+
                 <div>
                     Reset game count
                 </div>
             </div>
+
             <div className="game-info">
                 <div>
                     <Status

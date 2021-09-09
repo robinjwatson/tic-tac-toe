@@ -7,7 +7,9 @@ const Moves = ({ history, jumpTo }) => {
             'Go to game start';
         return (
             <li key={move}>
-                <button onClick={() => jumpTo(move)}>{desc}</button>
+                <button
+                    onClick={() => jumpTo(move)}>{desc}
+                </button>
             </li>
         );
     })

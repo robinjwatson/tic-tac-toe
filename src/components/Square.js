@@ -1,8 +1,8 @@
 import '../index.css';
 
-const Square = ({ onClick, value }) => {
+const Square = ({ onClick, value, label }) => {
     return (
-        <button className="square" onClick={onClick}>
+        <button data-cy={"square" + label} className="square" onClick={onClick}>
             {value}
         </button>
     );
