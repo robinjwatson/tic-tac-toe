@@ -1,0 +1,21 @@
+{
+  "files": {
+    "main.css": "/tic-tac-toe/static/css/main.80772c7d.chunk.css",
+    "main.js": "/tic-tac-toe/static/js/main.d5bd4e75.chunk.js",
+    "main.js.map": "/tic-tac-toe/static/js/main.d5bd4e75.chunk.js.map",
+    "runtime-main.js": "/tic-tac-toe/static/js/runtime-main.6d2e3908.js",
+    "runtime-main.js.map": "/tic-tac-toe/static/js/runtime-main.6d2e3908.js.map",
+    "static/js/2.f5e78e94.chunk.js": "/tic-tac-toe/static/js/2.f5e78e94.chunk.js",
+    "static/js/2.f5e78e94.chunk.js.map": "/tic-tac-toe/static/js/2.f5e78e94.chunk.js.map",
+    "index.html": "/tic-tac-toe/index.html",
+    "static/css/main.80772c7d.chunk.css.map": "/tic-tac-toe/static/css/main.80772c7d.chunk.css.map",
+    "static/js/2.f5e78e94.chunk.js.LICENSE.txt": "/tic-tac-toe/static/js/2.f5e78e94.chunk.js.LICENSE.txt",
+    "static/media/index.css": "/tic-tac-toe/static/media/bird-parrot.0f8acac5.gif"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.6d2e3908.js",
+    "static/js/2.f5e78e94.chunk.js",
+    "static/css/main.80772c7d.chunk.css",
+    "static/js/main.d5bd4e75.chunk.js"
+  ]
+}
