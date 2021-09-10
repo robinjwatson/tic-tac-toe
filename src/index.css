@@ -8,24 +8,34 @@ body {
   align-content: center;
 }
 
-  .game {
-    display: grid;
-      grid-template-columns: repeat(1, 1fr);
-      grid-gap: 1em;
-      grid-auto-rows: minmax(10px, auto);
+.game {
+  display: grid;
+  grid-template-columns: repeat(1, 1fr);
+  grid-gap: 1em;
+  grid-auto-rows: minmax(10px, auto);
+  background-image: url(C:\dev\tic-tac-toe\src\bird-parrot.gif);
   }
 
   ol {
     display: grid;
-    grid-gap: 1em;
+    grid-gap: 0.5em;
     margin: auto;
+    background-size:contain;
+    width: 150px;
+    height: 400px;
+    overflow: scroll;
+    transform: rotate(3deg);
+    border: 5px solid purple;
   }
 
   li {
     display: grid;
-    padding: 0.05em; 
-    align-items: center;
-    justify-items: center;
+    background-color: greenyellow;
+    width: 110px;
+    height: 110px;
+    overflow: scroll;
+    padding: 0.05em;
+    transform: rotate(-3deg);
   }
 
   .board-row:after {
@@ -46,7 +56,7 @@ body {
     font-stretch: 50%;
     font-size: 24px;
     font-weight: bold;
-    line-height: 34px;
+    line-height: 35px;
     height: 70px;
     margin-right: -1px;
     margin-top: -1px;
@@ -56,15 +66,22 @@ body {
   }
 
   .square:hover {
+    font: 70px "Wingdings", Futura, sans-serif;
+    margin-right: 15px;
+    text-align: right;
+    padding: 15px;
     background-color:blueviolet;
-    transform: rotate(1turn);
+    transform: rotate(0.99turn);
   }
   
   .square:focus {
-    outline: none;
+    width: 70px;
+    height: 70px;
+    outline: lawngreen;
     outline-style: groove;
     outline-color: invert;
     transform: scale(1.1);
+    transition-duration: 1s;  
   }
   
   ol.Moves 
