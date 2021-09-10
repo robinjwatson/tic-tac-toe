@@ -8,6 +8,7 @@ const Moves = ({ history, jumpTo }) => {
         return (
             <li key={move}>
                 <button
+                    data-cy={"gameCount" + move}
                     onClick={() => jumpTo(move)}>{desc}
                 </button>
             </li>

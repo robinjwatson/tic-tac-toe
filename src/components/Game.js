@@ -17,13 +17,14 @@ const Game = () => {
         setHistory(history.slice(0, move + 1))
         setStepNumber(move)
 
-
-        dispatch({ type: 'incrementGameCounter' })
-
-
+        if (move === 0) {
+            dispatch({ type: 'incrementGameCounter' })
+        }
         if ((move % 2) === 0) {
             dispatch({ type: 'xIsNext' })
             return;
+        } else {
+            dispatch({ type: 'oIsNext' })
         }
 
     };
@@ -38,7 +39,7 @@ const Game = () => {
         if (utils.calculateWinner(squares) || squares[i]) {
             return;
         }
-        squares[i] = isXnext ? "X" : "O";
+        squares[i] = isXnext ? "🌮" : "🍩";
 
         setHistory(history.concat([squares]))
         setStepNumber(stepNumber + 1)
@@ -55,13 +56,12 @@ const Game = () => {
         <div className="game">
             <div>
                 <h1>
-                    "Tic-TacToe"
+                    "Tic-Taco"
                 </h1>
             </div>
 
             <div className="game-board"
-                data-cy="square"
-            >
+                data-cy="square">
                 <Board
                     squares={history[stepNumber]}
                     onClick={i => handleClick(i)}
