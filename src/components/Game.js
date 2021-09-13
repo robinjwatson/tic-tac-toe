@@ -55,7 +55,7 @@ const Game = () => {
     return (
         <div className="game">
             <div>
-                <h1>
+                <h1 className="rainbow">
                     "Tic-Taco"
                 </h1>
             </div>

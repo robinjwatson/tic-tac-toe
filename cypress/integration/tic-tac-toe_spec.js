@@ -7,8 +7,8 @@ describe('Navigate to Tic-Tac_Toe App', () => {
 })
 
 describe('Find Title', () => {
-    it('finds the content ""Tic-TacToe""', () => {
-        cy.contains('"Tic-TacToe"')
+    it('finds the content ""Tic-Taco""', () => {
+        cy.contains('"Tic-Taco"')
     })
 })
 
@@ -42,11 +42,11 @@ describe('Gameboard Button Test', () => {
 describe('Gameboard All Button Test', () => {
     it('clicks all squares', () => {
         cy.get('[data-cy="squareOne"]').click()
-            .contains('X')
+            .contains('🌮')
         cy.contains('Next player: O')
         cy.contains('Move number # 1')
         cy.get('[data-cy="squareTwo"]').click()
-        cy.contains('O')
+        cy.contains('🍩')
         cy.get('[data-cy="squareThree"]').click()
         cy.get('[data-cy="squareFour"]').click()
         cy.get('[data-cy="squareFive"]').click()

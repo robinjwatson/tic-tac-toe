@@ -6,15 +6,17 @@ body {
   display: grid;
   justify-content: center;
   align-content: center;
+  animation: colorRotate 0.5s linear 0s infinite;
+
 }
 
-.game {
-  display: grid;
-  grid-template-columns: repeat(1, 1fr);
-  grid-gap: 1em;
-  grid-auto-rows: minmax(10px, auto);
-  background-image: url(C:\dev\tic-tac-toe\src\bird-parrot.gif);
-  }
+  .game {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    grid-gap: 1em;
+    grid-auto-rows: minmax(10px, auto);
+    background-image: url(C:\dev\tic-tac-toe\src\bird-parrot.gif);
+    }
 
   ol {
     display: grid;
@@ -140,4 +142,25 @@ body {
     display: grid;
     grid-gap: 0.5em;
     grid-auto-flow: column;
+  }
+
+  @keyframes colorRotate {
+    from {
+      color: #6666FF;
+    }
+    10% {
+      color: #0099FF;
+    }
+    50% {
+      color: #00FF00;
+    }
+    75% {
+      color: #FF3399;
+    }
+    100% {
+      color: #6666FF;
+    }
+  }
+  .rainbow {
+    animation: colorRotate 1s linear 0s infinite;
   }
